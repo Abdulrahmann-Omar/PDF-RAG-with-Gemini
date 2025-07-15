@@ -43,39 +43,64 @@ pip install gspread pandas pypdf chromadb sentence-transformers numpy scipy scik
   Go to Colab's "Secrets" panel.
   Add a secret named GOOGLE_API_KEY with your Google API key.
 ## Usage
-1. Open the main script (main.py or equivalent Jupyter notebook) in Google Colab or your local environment.
+
+1. Open the main script (`main.py` or equivalent Jupyter notebook) in Google Colab or your local environment.
 2. Ensure the PDF file is available in the working directory.
 3. Run the script to:
-  Extract and clean text from the PDF.
-  Split text into chunks and generate embeddings.
-  Store embeddings in ChromaDB.
-  Query the pipeline (e.g., "What was the total revenue?") to retrieve and generate answers.
-Example query output:
+   - Extract and clean text from the PDF.
+   - Split text into chunks and generate embeddings.
+   - Store embeddings in ChromaDB.
+   - Query the pipeline (e.g., "What was the total revenue?") to retrieve and generate answers.
 
-Python
+**Example query output:**
+
+```python
 query = "What was the total revenue?"
-# The pipeline retrieves relevant document chunks and generates a response using Gemini.
+```
+## Overview
+
+The pipeline retrieves relevant document chunks and generates a response using Gemini.
+
+---
+
 ## Project Structure
-main.py (or equivalent notebook): Core script containing the RAG pipeline logic.
-microsoft_annual_report_2022.pdf: Input PDF file (not included; must be provided by the user).
-README.md: This file, providing project overview and instructions.
-Dependencies
-gspread: For Google Sheets integration (if used).
-pandas: For data manipulation.
-pypdf: For PDF text extraction.
-langchain: For text chunking with RecursiveCharacterTextSplitter.
-chromadb: For vector storage and retrieval.
-sentence-transformers: For text embeddings (optional fallback).
-numpy, scipy, scikit-learn: For numerical and machine learning utilities.
-google-generativeai: For Gemini model integration.
-# Notes
-The helper_utils library is not used due to its unavailability on PyPI. A custom word_wrap function is implemented as a fallback.
-Ensure the Google API key is correctly configured to avoid authentication errors.
-The pipeline is designed for Google Colab but can be adapted for local environments with minor changes (e.g., environment variable setup for the API key).
-The Gemini model used for embeddings is models/embedding-001, and for generation, models/gemini-2.5-flash-preview-05-20.
-Acknowledgments
-DeepLearning.AI: For the Advanced Retrieval for AI course, which provided insights into chunking and vector search strategies.
-License
+
+- **main.py** (or equivalent notebook): Core script containing the RAG pipeline logic.
+- **microsoft_annual_report_2022.pdf**: Input PDF file (not included; must be provided by the user).
+- **README.md**: This file, providing project overview and instructions.
+
+---
+
+## Dependencies
+
+- **gspread**: For Google Sheets integration (if used).
+- **pandas**: For data manipulation.
+- **pypdf**: For PDF text extraction.
+- **langchain**: For text chunking with `RecursiveCharacterTextSplitter`.
+- **chromadb**: For vector storage and retrieval.
+- **sentence-transformers**: For text embeddings (optional fallback).
+- **numpy**, **scipy**, **scikit-learn**: For numerical and machine learning utilities.
+- **google-generativeai**: For Gemini model integration.
+
+---
+
+## Notes
+
+- The `helper_utils` library is not used due to its unavailability on PyPI. A custom `word_wrap` function is implemented as a fallback.
+- Ensure the Google API key is correctly configured to avoid authentication errors.
+- The pipeline is designed for Google Colab but can be adapted for local environments with minor changes (e.g., environment variable setup for the API key).
+- The Gemini model used for embeddings is `models/embedding-001`, and for generation, `models/gemini-2.5-flash-preview-05-20`.
+
+---
+
+## Acknowledgments
+
+- **DeepLearning.AI**: For the Advanced Retrieval for AI course, which provided insights into chunking and vector search strategies.
+
+---
+
+## License
+
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 
